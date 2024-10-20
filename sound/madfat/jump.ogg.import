@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/jump.ogg-d08cb7b9ccc73a8627ee853041dd51a4.oggstr"
+
+[deps]
+
+source_file="res://sound/madfat/jump.ogg"
+dest_files=[ "res://.import/jump.ogg-d08cb7b9ccc73a8627ee853041dd51a4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

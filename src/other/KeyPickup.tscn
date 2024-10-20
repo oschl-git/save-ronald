@@ -1,0 +1,96 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/pickups/key_red.png" type="Texture" id=1]
+[ext_resource path="res://assets/pickups/key_anim.png" type="Texture" id=2]
+[ext_resource path="res://assets/pickups/key_green.png" type="Texture" id=3]
+[ext_resource path="res://assets/pickups/key_blue.png" type="Texture" id=4]
+[ext_resource path="res://assets/pickups/key_yellow.png" type="Texture" id=5]
+[ext_resource path="res://assets/pickups/key_picked_up.png" type="Texture" id=6]
+[ext_resource path="res://src/other/KeyPickup.gd" type="Script" id=7]
+[ext_resource path="res://sound/collectibles/life_pickup.wav" type="AudioStream" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "blue",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "green",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "red",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "yellow",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "collected",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 2 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "collected"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -3 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[node name="KeyPickup" type="Area2D" groups=[
+"keys",
+]]
+collision_layer = 16
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "red"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/collected = SubResource( 3 )
+
+[node name="key_pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -10.0
+bus = "sounds"
+
+[connection signal="body_entered" from="." to="." method="_on_KeyPickup_body_entered"]

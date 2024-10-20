@@ -1,0 +1,425 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://src/UI/Opening.gd" type="Script" id=1]
+[ext_resource path="res://assets/UI/oschl_logo/c.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/oschl_logo/s.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/oschl_logo/o.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/oschl_logo/h.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/oschl_logo/l.png" type="Texture" id=6]
+[ext_resource path="res://src/UI/uni0553-webfont.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/UI/controller.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+extra_spacing_top = -3
+extra_spacing_bottom = -3
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "oschl_entrance"
+tracks/0/type = "value"
+tracks/0/path = NodePath("part1/o:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 104 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("part1/o:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("part1/s:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 104 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("part1/s:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("part1/c:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 104 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("part1/c:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("part1/h:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2, 0.7 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 104 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("part1/h:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("part1/l:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.3, 0.8 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 192, 128 ), Vector2( 192, 104 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("part1/l:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "oschl_exit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("part1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("part1:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "part2_entrance"
+tracks/0/type = "value"
+tracks/0/path = NodePath("part2/text:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 16, 48 ), Vector2( 64, 48 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("part2/text:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("part2/controller:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 136, 104 ), Vector2( 88, 104 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("part2/controller:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.1, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "part2_exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("part2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -48, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("part2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Opening" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="part1" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -108.0
+margin_right = 192.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="o" type="Sprite" parent="part1"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 128 )
+texture = ExtResource( 4 )
+
+[node name="s" type="Sprite" parent="part1"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 128 )
+texture = ExtResource( 3 )
+
+[node name="c" type="Sprite" parent="part1"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 128 )
+texture = ExtResource( 2 )
+
+[node name="h" type="Sprite" parent="part1"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 128 )
+texture = ExtResource( 5 )
+
+[node name="l" type="Sprite" parent="part1"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 192, 128 )
+texture = ExtResource( 6 )
+
+[node name="part2" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -192.0
+margin_top = -108.0
+margin_right = 192.0
+margin_bottom = 108.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="text" type="Control" parent="part2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 16.0
+margin_top = 48.0
+margin_right = 272.0
+margin_bottom = 96.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tamkish" type="Label" parent="part2/text"]
+margin_left = 24.0
+margin_top = 16.0
+margin_right = 104.0
+margin_bottom = 40.0
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+text = "Tamkish"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="music by" type="Label" parent="part2/text/Tamkish"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_right = 80.0
+margin_bottom = -7.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+text = "music by:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Godot" type="Label" parent="part2/text"]
+margin_left = 152.0
+margin_top = 16.0
+margin_right = 232.0
+margin_bottom = 40.0
+theme = SubResource( 2 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+text = "Godot"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="created in" type="Label" parent="part2/text/Godot"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -15.0
+margin_right = 80.0
+margin_bottom = -7.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+text = "created in:"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controller" type="Control" parent="part2"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 136.0
+margin_top = 104.0
+margin_right = 344.0
+margin_bottom = 160.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="xbox" type="Label" parent="part2/controller"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 112.0
+margin_top = -28.0
+margin_right = 200.0
+margin_bottom = 36.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+text = "Plays best on an
+Xbox One/Series X
+controller."
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="controller_img" type="Sprite" parent="part2/controller"]
+position = Vector2( 64, 32 )
+texture = ExtResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/oschl_entrance = SubResource( 5 )
+anims/oschl_exit = SubResource( 6 )
+anims/part2_entrance = SubResource( 7 )
+anims/part2_exit = SubResource( 8 )

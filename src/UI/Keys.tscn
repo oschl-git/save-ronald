@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/UI/hud_box.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/keys_empty.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/yellow_key.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/blue_key.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/green_key.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/red_key.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "hide"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 67, 1 ), Vector2( 67, -16 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 67, -16 ), Vector2( 67, 1 ) ]
+}
+
+[node name="Keys" type="NinePatchRect"]
+visible = false
+margin_left = 67.0
+margin_top = -16.0
+margin_right = 99.0
+texture = ExtResource( 1 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="keys_background" type="TextureRect" parent="."]
+margin_right = 32.0
+margin_bottom = 16.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="red" type="TextureRect" parent="keys_background"]
+visible = false
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 7.0
+margin_bottom = 13.0
+texture = ExtResource( 6 )
+
+[node name="yellow" type="TextureRect" parent="keys_background"]
+visible = false
+margin_left = 11.0
+margin_top = 4.0
+margin_right = 14.0
+margin_bottom = 13.0
+texture = ExtResource( 3 )
+
+[node name="blue" type="TextureRect" parent="keys_background"]
+visible = false
+margin_left = 18.0
+margin_top = 4.0
+margin_right = 21.0
+margin_bottom = 13.0
+texture = ExtResource( 4 )
+
+[node name="green" type="TextureRect" parent="keys_background"]
+visible = false
+margin_left = 25.0
+margin_top = 4.0
+margin_right = 28.0
+margin_bottom = 13.0
+texture = ExtResource( 5 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hide = SubResource( 1 )
+anims/show = SubResource( 2 )

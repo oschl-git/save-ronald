@@ -1,0 +1,373 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://src/UI/uni0553-webfont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/UI/level_button_unpressed.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/level_button_selected.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/level_button_pressed.png" type="Texture" id=4]
+[ext_resource path="res://src/UI/LevelSelect/LevelSelect.gd" type="Script" id=5]
+[ext_resource path="res://levels/level1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://levels/level6.tscn" type="PackedScene" id=7]
+[ext_resource path="res://levels/level4.tscn" type="PackedScene" id=8]
+[ext_resource path="res://levels/level3.tscn" type="PackedScene" id=9]
+[ext_resource path="res://levels/level2.tscn" type="PackedScene" id=10]
+[ext_resource path="res://levels/level5.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/UI/level_button_disabled.png" type="Texture" id=12]
+[ext_resource path="res://levels/level8boss.tscn" type="PackedScene" id=13]
+[ext_resource path="res://levels/level7.tscn" type="PackedScene" id=14]
+[ext_resource path="res://sound/ui/button_press.wav" type="AudioStream" id=15]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+extra_spacing_top = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+Label/colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/icons/ = null
+Label/styles/normal = null
+
+[node name="LevelSelect" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+button1 = ExtResource( 6 )
+button2 = ExtResource( 10 )
+button3 = ExtResource( 9 )
+button4 = ExtResource( 8 )
+button5 = ExtResource( 11 )
+button6 = ExtResource( 7 )
+button7 = ExtResource( 14 )
+button8 = ExtResource( 13 )
+low_level_interval = 1
+high_level_interval = 8
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 384.0
+margin_bottom = 216.0
+color = Color( 0.0784314, 0.0941176, 0.180392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 48.0
+margin_right = 384.0
+margin_bottom = 71.0
+theme = SubResource( 2 )
+text = "Apartment Complex"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelButtons" type="Control" parent="."]
+margin_left = 48.0
+margin_top = 56.0
+margin_right = 336.0
+margin_bottom = 208.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button1" type="TextureButton" parent="LevelButtons"]
+margin_left = 88.0
+margin_top = 48.0
+margin_right = 104.0
+margin_bottom = 64.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button1"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "1"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button2" type="TextureButton" parent="LevelButtons"]
+margin_left = 120.0
+margin_top = 48.0
+margin_right = 136.0
+margin_bottom = 64.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "2"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button3" type="TextureButton" parent="LevelButtons"]
+margin_left = 152.0
+margin_top = 48.0
+margin_right = 168.0
+margin_bottom = 64.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button3"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "3"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button4" type="TextureButton" parent="LevelButtons"]
+margin_left = 184.0
+margin_top = 48.0
+margin_right = 200.0
+margin_bottom = 64.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button4"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "4"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button5" type="TextureButton" parent="LevelButtons"]
+margin_left = 88.0
+margin_top = 80.0
+margin_right = 104.0
+margin_bottom = 96.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button5"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "5"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button6" type="TextureButton" parent="LevelButtons"]
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 136.0
+margin_bottom = 96.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button6"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "6"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button7" type="TextureButton" parent="LevelButtons"]
+margin_left = 152.0
+margin_top = 80.0
+margin_right = 168.0
+margin_bottom = 96.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button7"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "7"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button8" type="TextureButton" parent="LevelButtons"]
+margin_left = 184.0
+margin_top = 80.0
+margin_right = 200.0
+margin_bottom = 96.0
+mouse_filter = 2
+button_mask = 0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 12 )
+texture_focused = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelButtons/button8"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.0
+margin_top = -8.0
+margin_right = 8.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+text = "8"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+bus = "sounds"
+
+[connection signal="pressed" from="LevelButtons/button1" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="LevelButtons/button2" to="." method="_on_button2_pressed"]
+[connection signal="pressed" from="LevelButtons/button3" to="." method="_on_button3_pressed"]
+[connection signal="pressed" from="LevelButtons/button4" to="." method="_on_button4_pressed"]
+[connection signal="pressed" from="LevelButtons/button5" to="." method="_on_button5_pressed"]
+[connection signal="pressed" from="LevelButtons/button6" to="." method="_on_button6_pressed"]
+[connection signal="pressed" from="LevelButtons/button7" to="." method="_on_button7_pressed"]
+[connection signal="pressed" from="LevelButtons/button8" to="." method="_on_button8_pressed"]

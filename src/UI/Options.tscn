@@ -1,0 +1,803 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://src/UI/uni0553-webfont.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://src/UI/Options.gd" type="Script" id=2]
+[ext_resource path="res://sound/ui/button_press.wav" type="AudioStream" id=3]
+[ext_resource path="res://sound/ui/ui2.wav" type="AudioStream" id=4]
+[ext_resource path="res://sound/ui/ui1.wav" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 8
+extra_spacing_top = 2
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+Label/colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/icons/ = null
+Label/styles/normal = null
+
+[sub_resource type="Animation" id=5]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "deselect"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 8, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 1 ), Color( 0.87451, 0.878431, 0.909804, 0.607843 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "select"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.87451, 0.878431, 0.909804, 0.607843 ), Color( 0.87451, 0.878431, 0.909804, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Label:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 8, 0 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "entrance"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 72, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 72, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Options" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 72.0
+margin_right = 72.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionsLabel" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 88.0
+margin_bottom = 80.0
+theme = SubResource( 2 )
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="Control" parent="."]
+margin_top = 24.0
+margin_right = 120.0
+margin_bottom = 208.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fullscreen" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 56.0
+margin_right = 128.0
+margin_bottom = 72.0
+focus_neighbour_bottom = NodePath("../MusicVolume")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Fullscreen"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "fullscreen: on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Fullscreen"]
+anims/deselect = SubResource( 5 )
+anims/select = SubResource( 6 )
+
+[node name="MusicVolume" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 64.0
+margin_right = 128.0
+margin_bottom = 80.0
+focus_neighbour_top = NodePath("../Fullscreen")
+focus_neighbour_bottom = NodePath("../SoundVolume")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/MusicVolume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "music volume: 100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/MusicVolume"]
+anims/deselect = SubResource( 7 )
+anims/select = SubResource( 8 )
+
+[node name="SoundVolume" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 72.0
+margin_right = 128.0
+margin_bottom = 88.0
+focus_neighbour_top = NodePath("../MusicVolume")
+focus_neighbour_bottom = NodePath("../Vsync")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/SoundVolume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "sound volume: 100"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/SoundVolume"]
+anims/deselect = SubResource( 15 )
+anims/select = SubResource( 16 )
+
+[node name="Vsync" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 80.0
+margin_right = 128.0
+margin_bottom = 96.0
+focus_neighbour_top = NodePath("../SoundVolume")
+focus_neighbour_bottom = NodePath("../FPS")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Vsync"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "vsync: on"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Vsync"]
+anims/deselect = SubResource( 17 )
+anims/select = SubResource( 18 )
+
+[node name="FPS" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 88.0
+margin_right = 128.0
+margin_bottom = 104.0
+focus_neighbour_top = NodePath("../Vsync")
+focus_neighbour_bottom = NodePath("../UserData")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/FPS"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "show fps: off"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/FPS"]
+anims/deselect = SubResource( 19 )
+anims/select = SubResource( 20 )
+
+[node name="UserData" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 128.0
+margin_bottom = 112.0
+focus_neighbour_top = NodePath("../FPS")
+focus_neighbour_bottom = NodePath("../Back")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/UserData"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "remove saved data"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/UserData"]
+anims/deselect = SubResource( 9 )
+anims/select = SubResource( 10 )
+
+[node name="Back" type="TextureButton" parent="Buttons"]
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 128.0
+margin_bottom = 128.0
+focus_neighbour_top = NodePath("../UserData")
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Buttons/Back"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -56.0
+margin_top = -8.0
+margin_right = 56.0
+margin_bottom = 8.0
+theme = SubResource( 4 )
+custom_colors/font_color = Color( 0.87451, 0.878431, 0.909804, 0.607843 )
+text = "back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Buttons/Back"]
+anims/deselect = SubResource( 11 )
+anims/select = SubResource( 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/entrance = SubResource( 13 )
+anims/exit = SubResource( 14 )
+
+[node name="button_press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+bus = "sounds"
+
+[node name="ui1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "sounds"
+
+[node name="ui2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "sounds"
+
+[connection signal="focus_entered" from="Buttons/Fullscreen" to="." method="_on_Fullscreen_focus_entered"]
+[connection signal="focus_exited" from="Buttons/Fullscreen" to="." method="_on_Fullscreen_focus_exited"]
+[connection signal="pressed" from="Buttons/Fullscreen" to="." method="_on_Fullscreen_pressed"]
+[connection signal="focus_entered" from="Buttons/MusicVolume" to="." method="_on_MusicVolume_focus_entered"]
+[connection signal="focus_exited" from="Buttons/MusicVolume" to="." method="_on_MusicVolume_focus_exited"]
+[connection signal="pressed" from="Buttons/MusicVolume" to="." method="_on_MusicVolume_pressed"]
+[connection signal="focus_entered" from="Buttons/SoundVolume" to="." method="_on_SoundVolume_focus_entered"]
+[connection signal="focus_exited" from="Buttons/SoundVolume" to="." method="_on_SoundVolume_focus_exited"]
+[connection signal="pressed" from="Buttons/SoundVolume" to="." method="_on_SoundVolume_pressed"]
+[connection signal="focus_entered" from="Buttons/Vsync" to="." method="_on_Vsync_focus_entered"]
+[connection signal="focus_exited" from="Buttons/Vsync" to="." method="_on_Vsync_focus_exited"]
+[connection signal="pressed" from="Buttons/Vsync" to="." method="_on_Vsync_pressed"]
+[connection signal="focus_entered" from="Buttons/FPS" to="." method="_on_FPS_focus_entered"]
+[connection signal="focus_exited" from="Buttons/FPS" to="." method="_on_FPS_focus_exited"]
+[connection signal="pressed" from="Buttons/FPS" to="." method="_on_FPS_pressed"]
+[connection signal="focus_entered" from="Buttons/UserData" to="." method="_on_UserData_focus_entered"]
+[connection signal="focus_exited" from="Buttons/UserData" to="." method="_on_UserData_focus_exited"]
+[connection signal="pressed" from="Buttons/UserData" to="." method="_on_UserData_pressed"]
+[connection signal="focus_entered" from="Buttons/Back" to="." method="_on_Back_focus_entered"]
+[connection signal="focus_exited" from="Buttons/Back" to="." method="_on_Back_focus_exited"]
+[connection signal="pressed" from="Buttons/Back" to="." method="_on_Back_pressed"]

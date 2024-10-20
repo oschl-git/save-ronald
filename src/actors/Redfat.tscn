@@ -1,0 +1,140 @@
+[gd_scene load_steps=28 format=2]
+
+[ext_resource path="res://assets/redfat/walking/redfat_walking2.png" type="Texture" id=1]
+[ext_resource path="res://assets/redfat/walking/redfat_walking4.png" type="Texture" id=2]
+[ext_resource path="res://assets/redfat/charging/redfat_charging1.png" type="Texture" id=3]
+[ext_resource path="res://assets/redfat/charging/redfat_charging5.png" type="Texture" id=4]
+[ext_resource path="res://assets/redfat/charging/redfat_charging2.png" type="Texture" id=5]
+[ext_resource path="res://assets/redfat/charging/redfat_charging4.png" type="Texture" id=6]
+[ext_resource path="res://assets/redfat/walking/redfat_walking5.png" type="Texture" id=7]
+[ext_resource path="res://assets/redfat/walking/redfat_walking3.png" type="Texture" id=8]
+[ext_resource path="res://assets/redfat/charging/redfat_charging3.png" type="Texture" id=9]
+[ext_resource path="res://assets/redfat/walking/redfat_walking1.png" type="Texture" id=10]
+[ext_resource path="res://src/actors/Redfat.gd" type="Script" id=11]
+[ext_resource path="res://assets/redfat/stunned/redfat_stunned.3.png" type="Texture" id=12]
+[ext_resource path="res://assets/redfat/stunned/redfat_stunned.2.png" type="Texture" id=13]
+[ext_resource path="res://assets/redfat/stunned/redfat_stunned.1.png" type="Texture" id=14]
+[ext_resource path="res://assets/redfat/stunned/redfat_stunned.4.png" type="Texture" id=15]
+[ext_resource path="res://assets/redfat/death/redfat_death2.png" type="Texture" id=16]
+[ext_resource path="res://assets/redfat/death/redfat_death3.png" type="Texture" id=17]
+[ext_resource path="res://assets/redfat/death/redfat_death4.png" type="Texture" id=18]
+[ext_resource path="res://assets/redfat/death/redfat_death1.png" type="Texture" id=19]
+[ext_resource path="res://sound/redfat/redfat_walk.wav" type="AudioStream" id=20]
+[ext_resource path="res://sound/redfat/redfat_charge.wav" type="AudioStream" id=21]
+[ext_resource path="res://sound/hurt.wav" type="AudioStream" id=22]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 13 ), ExtResource( 12 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "stunned",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ],
+"loop": false,
+"name": "death",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 1 ), ExtResource( 8 ), ExtResource( 2 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "charging",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 4, 7 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 7 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -5, -6, -5, 4, -5, 5, -3, 5, -3, 6, -3, 8, -2, 8, -2, 6, 2, 6, 2, 8, 3, 8, 3, 5, 5, 5, 5, -2, 5, -6, 4, -6, 4, -7, -4, -7, -4, -6 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="redfat" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 258
+script = ExtResource( 11 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+position = Vector2( 2.86102e-06, 0 )
+scale = Vector2( 0.64, 0.64 )
+rect = Rect2( -50, -50, 100, 100 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "walking"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 1 )
+shape = SubResource( 2 )
+
+[node name="FloorChecker" type="RayCast2D" parent="."]
+position = Vector2( 5, 0 )
+enabled = true
+cast_to = Vector2( 0, 8.5 )
+collision_mask = 2
+
+[node name="PlayerChecker" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 100, 0 )
+
+[node name="DeathArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="DeathAreaCollisionShape2D" type="CollisionShape2D" parent="DeathArea"]
+modulate = Color( 0.0901961, 0.686275, 0.266667, 1 )
+position = Vector2( 0, 1 )
+shape = SubResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+occluder = SubResource( 4 )
+
+[node name="walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 20 )
+volume_db = -10.0
+attenuation = 13.0
+bus = "sounds"
+area_mask = 4
+
+[node name="charge" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 21 )
+volume_db = 10.0
+attenuation = 13.0
+bus = "sounds"
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 22 )
+volume_db = 3.0
+attenuation = 13.0
+bus = "sounds"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/hit = SubResource( 5 )
+
+[connection signal="screen_entered" from="VisibilityEnabler2D" to="." method="_on_VisibilityEnabler2D_screen_entered"]
+[connection signal="area_entered" from="DeathArea" to="." method="_on_DeathArea_area_entered"]

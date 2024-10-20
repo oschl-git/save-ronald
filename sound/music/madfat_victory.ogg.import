@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/madfat_victory.ogg-a34d27a318a03864e6d1667add560ec3.oggstr"
+
+[deps]
+
+source_file="res://sound/music/madfat_victory.ogg"
+dest_files=[ "res://.import/madfat_victory.ogg-a34d27a318a03864e6d1667add560ec3.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

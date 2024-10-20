@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fall.ogg-eece7529e2ae7e8fc605f1c077d16c84.oggstr"
+
+[deps]
+
+source_file="res://sound/madfat/fall.ogg"
+dest_files=[ "res://.import/fall.ogg-eece7529e2ae7e8fc605f1c077d16c84.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

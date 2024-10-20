@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/hotel_old.ogg-00b745171413e0f90b85e44647acedbd.oggstr"
+
+[deps]
+
+source_file="res://sound/music/hotel_old.ogg"
+dest_files=[ "res://.import/hotel_old.ogg-00b745171413e0f90b85e44647acedbd.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/death.ogg-8e6507f6b382eeca23e855cfc773c7a1.oggstr"
+
+[deps]
+
+source_file="res://sound/madfat/death.ogg"
+dest_files=[ "res://.import/death.ogg-8e6507f6b382eeca23e855cfc773c7a1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

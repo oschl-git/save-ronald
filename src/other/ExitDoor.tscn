@@ -1,0 +1,50 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/other/world1_exit.png" type="Texture" id=1]
+[ext_resource path="res://src/other/ExitDoor.gd" type="Script" id=2]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim9.png" type="Texture" id=3]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim6.png" type="Texture" id=4]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim7.png" type="Texture" id=5]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim12.png" type="Texture" id=6]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim16.png" type="Texture" id=7]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim14.png" type="Texture" id=8]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim10.png" type="Texture" id=9]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim13.png" type="Texture" id=10]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim15.png" type="Texture" id=11]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim11.png" type="Texture" id=12]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim5.png" type="Texture" id=13]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim8.png" type="Texture" id=14]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim3.png" type="Texture" id=15]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim4.png" type="Texture" id=16]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim1.png" type="Texture" id=17]
+[ext_resource path="res://assets/other/world1_exit_anim/world1_exit_anim2.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "normal",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 14 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 12 ), ExtResource( 6 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "exit",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 13 )
+
+[node name="ExitDoor" type="Area2D"]
+collision_layer = 66
+script = ExtResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "normal"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 3 )
+shape = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

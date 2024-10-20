@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/running.ogg-fd0d0a172b76f45c82c12955bbca4a6d.oggstr"
+
+[deps]
+
+source_file="res://sound/madfat/running.ogg"
+dest_files=[ "res://.import/running.ogg-fd0d0a172b76f45c82c12955bbca4a6d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

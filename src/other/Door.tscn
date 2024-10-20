@@ -1,0 +1,127 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://assets/doors/normal_open_anim/normal_open_anim3.png" type="Texture" id=1]
+[ext_resource path="res://assets/doors/normal_open_anim/normal_open_anim2.png" type="Texture" id=2]
+[ext_resource path="res://assets/doors/normal_open_anim/normal_open_anim4.png" type="Texture" id=3]
+[ext_resource path="res://assets/doors/normal_open_anim/normal_open_anim5.png" type="Texture" id=4]
+[ext_resource path="res://assets/doors/normal_closed.png" type="Texture" id=5]
+[ext_resource path="res://assets/doors/normal_open_anim/normal_open_anim1.png" type="Texture" id=6]
+[ext_resource path="res://src/other/Door.gd" type="Script" id=7]
+[ext_resource path="res://assets/doors/blue_open_anim/blue_open_anim4.png" type="Texture" id=8]
+[ext_resource path="res://assets/doors/green_open_anim/green_open_anim1.png" type="Texture" id=9]
+[ext_resource path="res://assets/doors/green_open_anim/green_open_anim3.png" type="Texture" id=10]
+[ext_resource path="res://assets/doors/green_open_anim/green_open_anim5.png" type="Texture" id=11]
+[ext_resource path="res://assets/doors/red_open_anim/red_open_anim1.png" type="Texture" id=12]
+[ext_resource path="res://assets/doors/red_open_anim/red_open_anim5.png" type="Texture" id=13]
+[ext_resource path="res://assets/doors/red_open_anim/red_open_anim4.png" type="Texture" id=14]
+[ext_resource path="res://assets/doors/yellow_open_anim/yellow_open_anim2.png" type="Texture" id=15]
+[ext_resource path="res://assets/doors/yellow_open_anim/yellow_open_anim3.png" type="Texture" id=16]
+[ext_resource path="res://assets/doors/red_open_anim/red_open_anim2.png" type="Texture" id=17]
+[ext_resource path="res://assets/doors/yellow_open_anim/yellow_open_anim4.png" type="Texture" id=18]
+[ext_resource path="res://assets/doors/green_open_anim/green_open_anim2.png" type="Texture" id=19]
+[ext_resource path="res://assets/doors/green_open_anim/green_open_anim4.png" type="Texture" id=20]
+[ext_resource path="res://assets/doors/yellow_open_anim/yellow_open_anim1.png" type="Texture" id=21]
+[ext_resource path="res://assets/doors/red_open_anim/red_open_anim3.png" type="Texture" id=22]
+[ext_resource path="res://assets/doors/blue_open_anim/blue_open_anim5.png" type="Texture" id=23]
+[ext_resource path="res://assets/doors/yellow_open_anim/yellow_open_anim5.png" type="Texture" id=24]
+[ext_resource path="res://assets/doors/yellow_closed.png" type="Texture" id=25]
+[ext_resource path="res://assets/doors/blue_closed.png" type="Texture" id=26]
+[ext_resource path="res://assets/doors/green_closed.png" type="Texture" id=27]
+[ext_resource path="res://assets/doors/red_closed.png" type="Texture" id=28]
+[ext_resource path="res://assets/doors/blue_open_anim/blue_open_anim1.png" type="Texture" id=29]
+[ext_resource path="res://assets/doors/blue_open_anim/blue_open_anim2.png" type="Texture" id=30]
+[ext_resource path="res://assets/doors/blue_open_anim/blue_open_anim3.png" type="Texture" id=31]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.5, 16 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 28 ) ],
+"loop": false,
+"name": "red_closed",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": false,
+"name": "green_closed",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": false,
+"name": "normal_closed",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 17 ), ExtResource( 22 ), ExtResource( 14 ), ExtResource( 13 ) ],
+"loop": false,
+"name": "red_opening",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "normal_opening",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": false,
+"name": "yellow_closed",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": false,
+"name": "blue_closed",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 8 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "blue_opening",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 18 ), ExtResource( 24 ) ],
+"loop": false,
+"name": "yellow_opening",
+"speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 19 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "green_opening",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 2, 16 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -1, -16, 2, -16, 2, 16, -1, 16 )
+
+[node name="Door" type="StaticBody2D" groups=[
+"doors",
+]]
+collision_layer = 66
+script = ExtResource( 7 )
+
+[node name="DoorPlayerDetect" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorPlayerDetect" groups=[
+"Doors",
+]]
+position = Vector2( -6.5, 0 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "normal_closed"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -6.5, 0.008 )
+scale = Vector2( 0.75, 1 )
+shape = SubResource( 3 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2( -7, 0 )
+occluder = SubResource( 4 )
+
+[connection signal="body_entered" from="DoorPlayerDetect" to="." method="_on_PlayerDetection_body_entered"]
+[connection signal="body_exited" from="DoorPlayerDetect" to="." method="_on_PlayerDetection_body_exited"]

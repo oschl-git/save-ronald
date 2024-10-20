@@ -1,0 +1,598 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://assets/UI/button_unpressed.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/button_selected.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/button_pressed.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/pause_symbol.png" type="Texture" id=4]
+[ext_resource path="res://src/UI/uni0553-webfont.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://src/UI/PauseScreen.gd" type="Script" id=6]
+[ext_resource path="res://sound/ui/ui1.wav" type="AudioStream" id=7]
+[ext_resource path="res://sound/ui/ui2.wav" type="AudioStream" id=8]
+[ext_resource path="res://sound/ui/button_press.wav" type="AudioStream" id=9]
+[ext_resource path="res://src/UI/Options.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/UI/timetrial_symbol.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+extra_spacing_top = 2
+font_data = ExtResource( 5 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+Label/colors/font_color = Color( 0.87451, 0.878431, 0.909804, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/icons/ = null
+Label/styles/normal = null
+
+[sub_resource type="Animation" id=3]
+resource_name = "enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.882353 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "enterwobackground"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.882353 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "exitwobackground"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Pause:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Pause:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "timetrial_enter"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TimeTrial:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 30 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TimeTrial:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0.882353 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "timetrial_exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("TimeTrial:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -30 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("TimeTrial:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0.882353 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="PauseScreen" type="Control"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 30.0
+margin_bottom = 29.9999
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Pause"]
+position = Vector2( 248, 108 )
+texture = ExtResource( 4 )
+
+[node name="Resume" type="TextureButton" parent="Pause"]
+margin_left = 88.0
+margin_top = 70.0
+margin_right = 152.0
+margin_bottom = 86.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/Resume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "resume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Restart" type="TextureButton" parent="Pause"]
+margin_left = 88.0
+margin_top = 90.0
+margin_right = 152.0
+margin_bottom = 106.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/Restart"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "restart"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="TextureButton" parent="Pause"]
+margin_left = 88.0
+margin_top = 110.0
+margin_right = 152.0
+margin_bottom = 126.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/Options"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "options"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" type="TextureButton" parent="Pause"]
+margin_left = 88.0
+margin_top = 130.0
+margin_right = 152.0
+margin_bottom = 146.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Pause/MainMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "main menu"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -0.5
+margin_top = -60.0
+margin_right = 0.5
+margin_bottom = 60.0
+color = Color( 0.87451, 0.878431, 0.909804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTrial" type="Control" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -30.0
+margin_bottom = -30.0001
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="TimeTrial"]
+position = Vector2( 248, 108 )
+texture = ExtResource( 11 )
+
+[node name="TimeTrialRestart" type="TextureButton" parent="TimeTrial"]
+margin_left = 88.0
+margin_top = 80.0
+margin_right = 152.0
+margin_bottom = 96.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TimeTrial/TimeTrialRestart"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "restart level"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTrialResume" type="TextureButton" parent="TimeTrial"]
+margin_left = 88.0
+margin_top = 100.0
+margin_right = 152.0
+margin_bottom = 116.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TimeTrial/TimeTrialResume"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "resume"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TimeTrialEnd" type="TextureButton" parent="TimeTrial"]
+margin_left = 88.0
+margin_top = 120.0
+margin_right = 152.0
+margin_bottom = 136.0
+focus_mode = 0
+mouse_filter = 2
+button_mask = 0
+enabled_focus_mode = 0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 3 )
+expand = true
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TimeTrial/TimeTrialEnd"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -32.0
+margin_top = -8.0
+margin_right = 32.0
+margin_bottom = 8.0
+theme = SubResource( 2 )
+text = "end time trial"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="TimeTrial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -0.5
+margin_top = -60.0
+margin_right = 0.5
+margin_bottom = 60.0
+color = Color( 0.87451, 0.878431, 0.909804, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/enter = SubResource( 3 )
+anims/enterwobackground = SubResource( 4 )
+anims/exit = SubResource( 5 )
+anims/exitwobackground = SubResource( 6 )
+anims/timetrial_enter = SubResource( 7 )
+anims/timetrial_exit = SubResource( 8 )
+
+[node name="ui1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "sounds"
+
+[node name="ui2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+bus = "sounds"
+
+[node name="button_press" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+bus = "sounds"
+
+[node name="Options" parent="." instance=ExtResource( 10 )]
+visible = false
+
+[connection signal="pressed" from="Pause/Resume" to="." method="_on_Resume_pressed"]
+[connection signal="pressed" from="Pause/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="Pause/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Pause/MainMenu" to="." method="_on_MainMenu_pressed"]
+[connection signal="pressed" from="TimeTrial/TimeTrialRestart" to="." method="_on_TimeTrialRestart_pressed"]
+[connection signal="pressed" from="TimeTrial/TimeTrialResume" to="." method="_on_TimeTrialResume_pressed"]
+[connection signal="pressed" from="TimeTrial/TimeTrialEnd" to="." method="_on_TimeTrialEnd_pressed"]
